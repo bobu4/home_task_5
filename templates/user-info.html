@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+ <p>Your profile</p>
+    <span>Name: {{ current_user.name }}</span>
+    <br>
+
+    <span>Surname: {{ current_user.surname }}</span>
+    <br>
+
+    <span>Phone number: {{ current_user.phone_number }}</span>
+    <br>
+
+    <span>Login: {{ current_user.login }}</span>
+    <br>
+
+    <span>Password: {{ current_user.password }}</span>
+    <br>
+
+    <a href="/user/update">Change</a>
+    <br>
+
+    <a href="/logout">Logout</a>
+
+</body>
+</html>

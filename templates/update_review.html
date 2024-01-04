@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update review</title>
+</head>
+<body>
+{% if add_flag == False %}
+ <p>Update your review</p>
+<form action="/shop/items/{{ item.id }}/review/{{ review.feedback_id }}" method="post">
+    <label for = "text"> Text:</label>
+    <input type="text" name="text" id=text" value="{{ review.text }}">
+    <br>
+
+    <label for = "rating"> Rating:</label>
+    <input type="text" name="rating" id="rating" value="{{ review.rating }}">
+    <br>
+
+    <input type="submit" value="Change">
+
+
+    </form>
+{% else %}
+ <p>Add your review</p>
+<form action="/shop/items/{{ item.id }}/review" method="post">
+    <label for = "text"> Text:</label>
+    <input type="text" name="text" id="text" required>
+    <br>
+
+    <label for = "rating"> Rating:</label>
+    <input type="text" name="rating" id="rating" required>
+    <br>
+
+    <input type="submit" value="Add review">
+
+
+    </form>
+{% endif %}
+</body>
+</html>

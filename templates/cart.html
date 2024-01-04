@@ -1,0 +1,18 @@
+{%  if current_user %}
+    hello {{ current_user.name }}
+    <a href="/logout">Logout</a>
+{% else %}
+    <a href="/login">Login</a>
+{% endif %}
+
+{% if user_cart %}
+{% for item in user_cart %}
+    <p> {{ item }}</p><form action="/shop/cart/delete" method="post"> <input type="hidden" value="{{ item.item_id }}" id="itm_id" name="itm_id"> <input type="submit" value="Remove from cart"></form>
+    <br>
+{% endfor %}
+   <form action="/shop/cart/order">
+   <input type="submit" value="Make order">
+   </form>
+{% else %}
+<p>Your cart is empty!</p>
+{% endif %}

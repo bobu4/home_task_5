@@ -1,0 +1,20 @@
+{%  if current_user %}
+    hello {{ current_user.name }}
+    <a href="/logout">Logout</a>
+{% else %}
+    <a href="/login">Login</a>
+{% endif %}
+<h1>Reviews for {{ item }}</h1>
+<br>
+{% for review in reviews %}
+    {% if current_user.login == review.user_login %}
+    <p>{{ review }} <a href="/shop/items/{{ item.id }}/review/update">Change</a></p>
+
+    {% else %}
+    <p>{{ review }}</p>
+    {% endif %}
+    <br>
+{% endfor %}
+{% if user_feedback == None %}
+<a href="/shop/items/{{ item.id }}/review/update">Add review</a>
+{% endif %}
